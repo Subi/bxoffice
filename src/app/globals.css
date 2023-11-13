@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* reused css styles */
+@layer components {
+  .tooltip {
+    @apply  animate-toolTipZoom group-hover:block absolute hidden font-poppins p-4 rounded-md shadow-md  text-white left-[12em] -top-2 z-10 w-[285px]  bg-foreground;
+   }
+  .reverse-tooltip {
+    @apply animate-toolTipZoom group-hover:block absolute hidden font-poppins p-4 rounded-md shadow-md text-white right-[12em] -top-2 z-10 w-[285px]  bg-foreground;
+   }
+   .login {
+    @apply py-[.3em] px-4 rounded bg-blue text-white font-medium text-sm tracking-wider
+   }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,11 +30,5 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color:#222327;
 }
