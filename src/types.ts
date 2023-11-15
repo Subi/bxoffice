@@ -1,11 +1,11 @@
-import { TMDBMovie } from "./server/tmdb/interface"
+import { TMDBMovie, TMDBMovieDetails } from "./server/tmdb/interface"
 
 
 export type CategoriesData = CategoryData[]
 
 export type CategoryData = {
     name: string
-    results: TMDBMovie[]
+    results: TMDBMovieDetails[]
 }
 
 export enum VideoType {

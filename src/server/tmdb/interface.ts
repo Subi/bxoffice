@@ -35,6 +35,8 @@ export interface TMDBMovieDetails{
     genere_ids: number[];
     overview: string;
     original_language: string;
+    original_title:string;
+    tagline:string
     title:string
     runtime: number
     genres: Genre[]

@@ -47,6 +47,12 @@ const config: Config = {
          category: "repeat(auto-fill,185px)",
          trailers: "repeat(auto-fill,395px)"
       },
+      gridAutoColumns: {
+        '2fr' : 'minmax(0,2fr)'
+      },
+      gridTemplateRows: {
+        trailers: "repeat(auto-fill,395px)"
+      },
       animation: {
         onLoadZoom: "onLoadZoom .4s",
         toolTipZoom: "onLoadZoom .3s"

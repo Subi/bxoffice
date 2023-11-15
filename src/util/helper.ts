@@ -5,10 +5,13 @@ export const posterImage = (posterPath:string):string => {
     return `https://image.tmdb.org/t/p/original${posterPath}`
 }
 
+
+export const backdropImage = (backdropPath:string):string => {
+    return `https://image.tmdb.org/t/p/original${backdropPath}`
+}
+
 export const trailerUrl = (videos:Videos): string => {
     let key:string | undefined
-
-    // const key = videos.results.find(video => video.type == VideoType.Teaser)?.key as string
     key = videos.results.find(video => video.type == VideoType.Trailer)?.key != undefined ? videos.results.find(video => video.type == VideoType.Trailer)?.key : videos.results.find(video => video.type == VideoType.Teaser)?.key as string
     return `https://www.youtube.com/watch?v=${key}`
 
@@ -27,3 +30,5 @@ export const getDirector = (crew: Crew[]):string => {
 export const getGenresName = (genres:Genre[]) => {
     return genres.map(genre => genre.name)
 }
+
+

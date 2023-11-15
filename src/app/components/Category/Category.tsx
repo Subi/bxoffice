@@ -1,4 +1,4 @@
-import { CategoryData, Result } from "@/types"
+import { CategoryData} from "@/types"
 import Poster from "../Poster/Poster"
 
 interface CategoryProps {
@@ -8,8 +8,8 @@ interface CategoryProps {
 
 export default async function Category({category}:CategoryProps){
     return (
-        <section className=" w-full mx-auto text-white mb-10">
-            <header>
+        <section className=" w-full mx-auto text-white mb-16">
+            <header className="pb-4">
                 <span className="uppercase text-goldAccent text-md tracking-wide font-medium">{category.name}</span>
             </header>
             <div className="w-full grid grid-cols-category gap-x-8 mt-3">

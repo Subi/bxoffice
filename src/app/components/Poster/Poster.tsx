@@ -1,7 +1,7 @@
 import Image, { ImageProps } from "next/image"
 import {getReleaseYear, posterImage } from "@/util/helper"
 import PosterInfo from "../PosterInfo/PosterInfo"
-import { TMDBMovieDetails } from "@/server/tmdb/interface"
+import { TMDBMovie, TMDBMovieDetails } from "@/server/tmdb/interface"
 
 interface Poster{
     media:TMDBMovieDetails
