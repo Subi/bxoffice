@@ -2,6 +2,7 @@ import { CategoryData } from "@/types"
 import { TMDBAPiResponse, TMDBMovie, TMDBMovieDetails } from "./interface"
 import { PREVIEW_LENGTH } from "@/server/tmdb/constants"
 import { createOpts } from "@/util/api/helper"
+import { currentDate, monthsAfterCurrentDate } from "@/util/helper"
 
 export const popularMovies = async ():Promise<CategoryData> => {
     const response =  await fetch("https://api.themoviedb.org/3/movie/popular" , createOpts())
@@ -25,11 +26,10 @@ export const popularMovies = async ():Promise<CategoryData> => {
 
 
 export const upcomingMovies = async ():Promise<CategoryData> => {
-    const response =  await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_date.gte=2023-11-10&primary_release_date.lte=2023-12-31&sort_by=popularity.desc" , createOpts())
+    const response =  await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_date.gte=${currentDate()}&primary_release_date.lte=${monthsAfterCurrentDate()}&sort_by=popularity.desc` , createOpts())
     if(!response.ok) {
         console.log(response.status , response.statusText)
     }
-
     const upcomingMoviesResponse:TMDBAPiResponse = await response.json()
     const upcomingMoviesArr:TMDBMovieDetails[] = []
 

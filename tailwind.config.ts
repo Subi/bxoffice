@@ -17,6 +17,9 @@ const config: Config = {
         button: '#292B32',
         blue: "#4B68FE",
         input: '#292B32',
+        salmon: "#EE8281",
+        gold: "#FEA149",
+        green: "#7F3946",
         pinkButton: 'rgba(255,67,105,100)',
         grayButton: 'rgba(38,40,47,18)'
       },
@@ -55,12 +58,17 @@ const config: Config = {
       },
       animation: {
         onLoadZoom: "onLoadZoom .4s",
-        toolTipZoom: "onLoadZoom .3s"
+        toolTipZoom: "onLoadZoom .3s",
+        buttonGrow: "buttonGrow .2s"
       },
       keyframes: {
         onLoadZoom : {
           "0%": {transform: "scale(0)"},
           "100%": {transform: "scale(1)"}
+        },
+        buttonGrow : {
+          "0%": {transform: "translateY(0)"},
+          "100%": {transform:"translateY(-1px)"}
         },
         extend : {
           "0%": {transform: "width"}

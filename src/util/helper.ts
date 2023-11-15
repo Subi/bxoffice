@@ -1,5 +1,7 @@
 import { Crew, Genre , Videos } from "@/server/tmdb/interface"
 import { VideoType } from "@/types"
+import moment from "moment"
+
 
 export const posterImage = (posterPath:string):string => {
     return `https://image.tmdb.org/t/p/original${posterPath}`
@@ -29,6 +31,14 @@ export const getDirector = (crew: Crew[]):string => {
 
 export const getGenresName = (genres:Genre[]) => {
     return genres.map(genre => genre.name)
+}
+
+export const currentDate = () => {
+    return moment().format("YYYY-MM-DD")
+}
+
+export const monthsAfterCurrentDate = ():string => {
+    return moment().add('2' , 'month').format('YYYY-MM-DD')
 }
 
 
