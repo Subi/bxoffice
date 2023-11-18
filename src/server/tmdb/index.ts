@@ -71,7 +71,7 @@ export const trendingMovies = async ():Promise<CategoryData> => {
 
 
 export const getMovieDetails =  async (id:number):Promise<TMDBMovieDetails> => {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?append_to_response=credits` , createOpts())
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?append_to_response=credits,videos` , createOpts())
     if(!response.ok) {
         console.log(response.status , response.statusText)
     }

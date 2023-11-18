@@ -5,6 +5,7 @@ import watchlist from '../public/watchlist.png'
 import unwatchlist from '../public/unwatchlist.png'
 import avatar from '../public/profile.jpg'
 import play from '../public/play.png'
+import exit from '../public/exit.png'
 
 // Sidebar
 import logo from '../public/Sidebar/logo.svg'
@@ -23,5 +24,6 @@ export {
     home,
     avatar,
     list,
-    play
+    play,
+    exit
 }
