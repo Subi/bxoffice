@@ -23,6 +23,9 @@
    .login {
     @apply py-[.3em] px-4 rounded text-white font-medium text-sm tracking-wider bg-blue hover:shadow-md hover:shadow-blue-500/50 hover:-translate-y-[2px] transition-transform duration-200
    }
+   .avatar {
+    @apply hover:-translate-y-[.5px] transition-transform duration-200
+   }
 }
 
 

@@ -1,29 +1,17 @@
-import { avatar } from "@/images"
+import { auth, currentUser, useUser } from "@clerk/nextjs"
 import Image from "next/image"
+import SignedOut from "../SignedOut/SignedOut"
+import { downarrow } from "@/images"
+import SignedIn from "../SIgnedIn/SignedIn"
 
 
 
 export default async function Profile() {
-    const loggedOut:boolean = true
-    return (
-        <>
-        {loggedOut ? 
-            <div className="w-1/6 flex items-center justify-evenly">
-                <span className="text-slate tracking-wide text-sm font-normal">Signup</span>
-                <button className="login">Login</button>
-            </div> : <div className="w-1/5 flex justify-evenly items-center">
-            <div aria-label="profileAvatar" className=" bg-blue-400 border-none rounded-full overflow-hidden w-[40px] h-[40px] relative">
-                <Image
-                    src={avatar}
-                    alt="profileImage"
-                    fill
-                    style={{objectFit: "contain"}}
-                    />
-            </div>
-            <span className="text-slate tracking-wider font-medium text-sm">BobaBoy</span>
-        </div>}
-        </>
+    const user =  await currentUser()
 
-
+    return (    
+        <div className="w-1/6 flex justify-between">
+            {user?.id ? <SignedIn username={user.username} userImage={user.imageUrl}/> : <SignedOut/> }
+        </div>
     )
 }

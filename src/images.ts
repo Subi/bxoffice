@@ -6,6 +6,7 @@ import unwatchlist from '../public/unwatchlist.png'
 import avatar from '../public/profile.jpg'
 import play from '../public/play.png'
 import exit from '../public/exit.png'
+import downarrow from '../public/down_arrow.png'
 
 // Sidebar
 import logo from '../public/Sidebar/logo.svg'
@@ -25,5 +26,6 @@ export {
     avatar,
     list,
     play,
-    exit
+    exit,
+    downarrow
 }
