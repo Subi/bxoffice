@@ -1,7 +1,7 @@
 import Image, { ImageProps } from "next/image"
 import {getReleaseYear, posterImage } from "@/util/helper"
 import PosterInfo from "../PosterInfo/PosterInfo"
-import { TMDBMovieDetails } from "@/server/tmdb/interface"
+import { TMDBMovie, TMDBMovieDetails } from "@/server/tmdb/interface"
 
 interface Poster{
     media:TMDBMovieDetails
@@ -12,7 +12,7 @@ export default function Poster({media , currentIndex}:Poster){
     return (
     <>
     <PosterInfo media={media} currentIndex={currentIndex}/>
-    <div className="h-[265px] overflow-hidden relative mb-3 rounded-lg shadow-md">
+    <div className="h-[265px] overflow-hidden relative mb-3 rounded-md  shadow-lg border-2  border-slate-400/5">
             <Image
         src={posterImage(media.poster_path)}
         alt={media.title}

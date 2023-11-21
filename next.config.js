@@ -9,7 +9,7 @@ const nextConfig = {
                 port: '',
             }
         ],
-        domains: ["image.tmdb.org"]
+        domains: ["image.tmdb.org" , "img.clerk.com"]
     }
 }
 
