@@ -31,11 +31,11 @@ export default async function Sidebar() {
         </div>
         <div className="w-full justify-evenly pb-5 font-thin flex flex-col items-center pt-8">
             <header className="w-4/5 pl-2 pb-3">
-                <span className="text-gold text-sm font-normal tracking-wide">Lists</span>
+                <span className="text-gold text-sm font-normal tracking-wide">Movies </span>
             </header>
             <div className= "w-5/6 mb-6 py-[.15em] rounded-md pl-4   text-slate text-center tracking-wider hover:transition-all hover:duration-200 hover:bg-foreground-light hover:text-white">
                 <div className=" w-4/6 flex  items-center">
-                <span className="pl-4 text-sm font-medium tracking-wider"><Link href={"/"}>Watchlist</Link></span>
+                <span className="pl-4 text-sm font-medium tracking-wider"><Link href={"/watchlist"}>Watchlist</Link></span>
                 </div>
             </div>
         </div>
