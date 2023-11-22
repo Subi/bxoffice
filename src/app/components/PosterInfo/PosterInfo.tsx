@@ -4,7 +4,7 @@ import { TMDBMovie, TMDBMovieDetails } from "@/server/tmdb/interface";
 import { addToList, deleteFromList, getDirector, getGenresName, getReleaseYear } from "@/util/helper";
 import { unlike , liked , unwatchlist , watchlist} from "@/images";
 import { useEffect, useState } from "react";
-import { useFormState } from "react-dom";
+
 
 
 interface PosterInfo {
@@ -17,7 +17,8 @@ export default function PosterInfo({media , currentIndex}:PosterInfo){
     const [isWatchlist , setIsWatchlist] = useState<boolean>(false)
 
     const onWatchlist = (title:string):boolean => {
-        let list:TMDBMovieDetails[] = JSON.parse(localStorage.getItem("watchlist") as string) 
+        const list:TMDBMovieDetails[] = JSON.parse(localStorage.getItem("watchlist") as string) 
+        if(!list) { return false}
         return list.find(item => { return item.title == title}) ? true : false
     }
 

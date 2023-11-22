@@ -14,10 +14,10 @@ export default async function Home() {
   
   return (  
     <>
-    <div id='modal' className='w-full'></div>
+    <div id='modal' className='w-full'/>
     <div id='wrapper' className='w-11/12 ml-auto'>
     <div className=' w-10/12 flex flex-col justify-center mx-auto'>
-      <div className='w-11/12  mt-10 mb-20 flex justify-between items-center'>
+      <div className='w-11/12 mt-10 mb-20  flex justify-between items-center'>
       <SearchBar/>
       <Profile/>
       </div>

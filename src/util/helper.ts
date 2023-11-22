@@ -42,7 +42,8 @@ export const monthsAfterCurrentDate = ():string => {
 }
 
 
-export const addToList = (media:TMDBMovieDetails) => {  //  Add user requested movie to list based concept around local storage
+
+export const addToList = (media:TMDBMovieDetails) => { 
     const list: string | null = localStorage.getItem('watchlist')
     if(!list) {
         const newList:TMDBMovieDetails[] = []
