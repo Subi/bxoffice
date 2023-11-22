@@ -15,10 +15,10 @@
           scrollbar-width: none;  /* Firefox */
       }
   .tooltip {
-    @apply  animate-toolTipZoom group-hover:block absolute hidden font-poppins p-4 rounded-md shadow-md  text-white left-[12em] -top-2 z-10 w-[285px]  bg-foreground;
+    @apply  before:absolute before:-left-3 before:h-[100px] before:content-[''] before:w-4 animate-toolTipZoom group-hover:block absolute hidden font-poppins p-4 rounded-md shadow-md  text-white left-[12em] -top-2 z-10 w-[285px]  bg-foreground;
    }
   .reverse-tooltip {
-    @apply animate-toolTipZoom group-hover:block absolute hidden font-poppins p-4 rounded-md shadow-md text-white right-[12em] -top-2 z-10 w-[285px]  bg-foreground;
+    @apply before:absolute before:-right-3  before:h-[100px] before:content-[''] before:w-4 animate-toolTipZoom group-hover:block absolute hidden font-poppins p-4 rounded-md shadow-md text-white right-[12em] -top-2 z-10 w-[285px]  bg-foreground;
    }
    .login {
     @apply py-[.3em] px-4 rounded text-white font-medium text-sm tracking-wider bg-blue hover:shadow-md hover:shadow-blue-500/50 hover:-translate-y-[2px] transition-transform duration-200

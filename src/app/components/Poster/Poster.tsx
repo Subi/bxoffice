@@ -12,7 +12,7 @@ export default function Poster({media , currentIndex}:Poster){
     return (
     <>
     <PosterInfo media={media} currentIndex={currentIndex}/>
-    <div className="h-[265px] overflow-hidden relative mb-3 rounded-md  shadow-lg border-2  border-slate-400/5">
+    <div key={currentIndex} className="h-[265px] overflow-hidden relative mb-3 rounded-md  shadow-lg border-2  border-slate-400/5">
             <Image
         src={posterImage(media.poster_path)}
         alt={media.title}

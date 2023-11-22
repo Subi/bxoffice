@@ -1,4 +1,4 @@
-import { Crew, Genre , Videos } from "@/server/tmdb/interface"
+import { Crew, Genre , TMDBMovieDetails, Videos } from "@/server/tmdb/interface"
 import { VideoType } from "@/types"
 import moment from "moment"
 
@@ -39,6 +39,30 @@ export const currentDate = () => {
 
 export const monthsAfterCurrentDate = ():string => {
     return moment().add('2' , 'month').format('YYYY-MM-DD')
+}
+
+
+export const addToList = (media:TMDBMovieDetails) => {  //  Add user requested movie to list based concept around local storage
+    const list: string | null = localStorage.getItem('watchlist')
+    if(!list) {
+        const newList:TMDBMovieDetails[] = []
+        newList.push(media)
+        localStorage.setItem('watchlist' , JSON.stringify(newList))
+    } else {
+        let list:TMDBMovieDetails[] = JSON.parse(localStorage.getItem("watchlist") as string)
+        list.push(media)
+        localStorage.setItem('watchlist' , JSON.stringify(list))
+    }
+}
+
+export const deleteFromList = (media:TMDBMovieDetails) => {
+    let list:TMDBMovieDetails[] = JSON.parse(localStorage.getItem("watchlist") as string) 
+    list.find((item , index) => {
+        if(item.title == media.title) {
+            list.splice(index ,  1)
+            localStorage.setItem('watchlist' , JSON.stringify(list))
+        }
+    })
 }
 
 
