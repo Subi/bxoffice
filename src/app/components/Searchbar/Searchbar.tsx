@@ -11,7 +11,7 @@ interface SearchBarProp {
 export default function SearchBar({query}:SearchBarProp) {
     const router = useRouter()
     const [input , setInput] = useState<string>("")
-    const debouncedSearch: string | undefined = useDebounce(input , 300)
+    const debouncedSearch: string | undefined = useDebounce(input , 800)
 
     useEffect(() => {
         if(!debouncedSearch) return
