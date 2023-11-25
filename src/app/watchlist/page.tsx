@@ -1,19 +1,15 @@
-/*
-Currently using this as basic concept for what a list would look like
-Users don't need to sign in to use / access to this list though their are limitations such as 
+import Header from "../components/Header/Header"
+import List from "../components/List/List"
+import { useEffect, useState } from "react"
+import { TMDBMovieDetails } from "@/server/tmdb/interface"
 
-No persistence 
-No updating small features with list
-
-The route for this should look as so bxoffice.co/watchlist <- this represents it not being tied to any user
-
-user route would look something liek bxoffi.co/user/movies/[name_of_list]
-*/
-
-
-
-export default function Page() {
+export default async function Page(){
     return (
-        <div className="text-white">hello</div>
+        <>
+        <div className='text-slate w-10/12 flex flex-col justify-center mx-auto'>
+              <Header/>
+              <List/>
+        </div>
+        </>
     )
 }

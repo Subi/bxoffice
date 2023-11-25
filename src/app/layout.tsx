@@ -21,8 +21,11 @@ export default function RootLayout({
     <ClerkProvider>
     <html lang="en">
       <body className={`${poppins.className}`}>
-        <Sidebar/>
+      <Sidebar/>
+      <div id='modal' className='w-full'/>
+      <div id='wrapper' className='w-[90.5%] ml-auto'>
         {children}
+        </div>
         </body>
     </html>
     </ClerkProvider>

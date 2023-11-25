@@ -69,7 +69,7 @@ export default  function Trailers({trailers}:TrailersProps){
                           </div>
                       </div>
                       <div  
-                      className="opacity-20 rounded-md  relative z-10  w-full h-full bg-center bg-no-repeat bg-cover"
+                      className="opacity-20 rounded-md  relative z-10  w-full h-full  bg-center bg-no-repeat bg-cover"
                       style={{
                           backgroundImage: `url(${backdropImage(media.backdrop_path)})`
                       }}
@@ -77,7 +77,7 @@ export default  function Trailers({trailers}:TrailersProps){
                       </div>
                   </div>
               )
-          })}
+          }).slice(0,3)}
       </div>
   </section>
         </>

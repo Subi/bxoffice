@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default async function Sidebar() {
     return (
-    <nav className="bg-foreground flex flex-col w-[12em] fixed z-0 h-screen shadow-lg  rounded-md">
+    <nav className="bg-foreground w-[11em] fixed z-0 h-screen shadow-lg">
         <Link href={"/"}>
         <header className="text-foreground py-10 w-5/5  flex  justify-center">
             <span>
