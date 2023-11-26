@@ -15,7 +15,8 @@ import { posterImage } from "@/util/helper"
 import PosterView from "./PosterView"
 import ListView from "./ListView"
 import EmptyMesage from "./EmptyMessage"
-import Poster from "../Poster/Poster"
+import {LuListMinus} from 'react-icons/lu'
+import { PiSquaresFourFill } from "react-icons/pi"
 
 
 export default function List() {
@@ -30,10 +31,13 @@ export default function List() {
     }, [])
 
 
-    const getCurrentView = (list:TMDBMovieDetails[]) => {
+    const getCurrentView = (list:TMDBMovieDetails[]):JSX.Element => {
         return view ?  <PosterView list={list}/> : <ListView list={list}/>
     }
 
+    const isSelected = ():string => {
+        return "#FEA149"
+    }
 
     return (
         <>
@@ -67,9 +71,10 @@ export default function List() {
      </div>
         <div className="w-full  py-16 flex-col">
             <div className=" w-11/12 pb-10 flex justify-end">
-                <div className="flex w-20  justify-between py-[2px]  bg-foreground shadow-md rounded-md">
-                    <div className="pl-5" onClick={() => {setView(true)}}>P</div>
-                    <div className="pr-5" onClick={() => {setView(false)}}>L</div>
+                <div className="flex w-20 items-center  justify-between py-[5px]  bg-foreground shadow-lg rounded-sm">
+                <div className="pl-3" onClick={() => {setView(true)}}>{<PiSquaresFourFill color={view ? isSelected() : "white"} size="1.2em" />}</div>
+                <div className="pr-3" onClick={() => {setView(false)}}>{<LuListMinus color={view ? "white" : isSelected()} size="1.2em" />}</div>
+
                 </div>
             </div>
             {list.length < 1 ? <EmptyMesage/> : getCurrentView(list) }
