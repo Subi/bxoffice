@@ -13,10 +13,14 @@ import { TMDBMovieDetails } from "@/server/tmdb/interface"
 import { useEffect , useState } from "react"
 import { posterImage } from "@/util/helper"
 import PosterView from "./PosterView"
+import ListView from "./ListView"
+import EmptyMesage from "./EmptyMessage"
+import Poster from "../Poster/Poster"
 
 
 export default function List() {
     const [list,  setList] = useState<TMDBMovieDetails[]>([])
+    const [view , setView] = useState<boolean>(true)
 
     useEffect(() => {
         const list: string | null = localStorage.getItem("watchlist")
@@ -24,42 +28,51 @@ export default function List() {
         const foundList = JSON.parse(list)
         setList(foundList)
     }, [])
-        
+
+
+    const getCurrentView = (list:TMDBMovieDetails[]) => {
+        return view ?  <PosterView list={list}/> : <ListView list={list}/>
+    }
+
+
     return (
         <>
     <div className="w-full flex">
-        {list.length < 4 ? <div className="w-[225px] h-[225px] bg-foreground"/> : // shows placeholder cover if length of list is under 4 items 
-                <div className="w-[225px] h-[225px] flex-col  bg-foreground">
+        {list.length < 4 ? <div className="w-[232px]  h-[232px] bg-foreground"/> : // shows placeholder cover if length of list is under 4 items 
+                <div className="w-[232px] h-[232px] flex-col rounded-md overflow-hidden relative  bg-foreground">
                 <div className="w-full flex">
-                <div className="w-[112px] h-[112px] relative overflow-hidden bg-center bg-no-repeat bg-cover"    style={{
+                <div className="w-[116px] h-[116px] relative rounded-md overflow-hidden bg-center bg-no-repeat bg-cover"    style={{
                               backgroundImage: `url(${posterImage(list[0].poster_path)})`
                           }}/>
-                   <div className="w-[112px] h-[112px] relative overflow-hidden bg-center bg-no-repeat bg-cover"    style={{
+                   <div className="w-[116px] h-[116px] relative rounded-md  overflow-hidden bg-center bg-no-repeat bg-cover"    style={{
                               backgroundImage: `url(${posterImage(list[1].poster_path)})`
                           }}/>
                 </div>
                 <div className="w-full flex">
-                <div className="w-[112px] h-[112px] relative overflow-hidden bg-center bg-no-repeat bg-cover"    style={{
+                <div className="w-[116px] h-[116px] relative rounded-md  overflow-hidden bg-center bg-no-repeat bg-cover"    style={{
                               backgroundImage: `url(${posterImage(list[2].poster_path)})`
                           }}/>
-                   <div className="w-[112px] h-[112px] relative overflow-hidden bg-center bg-no-repeat bg-cover"    style={{
+                   <div className="w-[116px] h-[116px] relative rounded-md  overflow-hidden bg-center bg-no-repeat bg-cover"    style={{
                               backgroundImage: `url(${posterImage(list[3].poster_path)})`
                           }}/>
                 </div>
             </div> }
-
-
-        <div className="flex-col pl-10 pt-3 text-white">
+        <div className="flex-col pl-10 pt-10 text-white">
            <div className="pb-5 text-sm tracking-wider font-extralight">
            <span>Public</span>
            </div>
-           <h2 className="tracking-wider pb-7 text-3xl font-medium ">Watchlist</h2>
-           <p className=" tracking-wider text-sm font-extralight leading-normal w-5/6">Tell us all the things we don’t care to hear about
-           how these movies made you feel.</p>
+           <h2 className="tracking-wide pb-10 text-4xl font-medium ">Your Watchlist</h2>
+           <p className=" tracking-wider text-sm font-extralight leading-normal w-full">It's awfully kinda boring in here .</p>
         </div>
      </div>
-        <div className="w-full py-20">
-            {list.length < 0 ? <div></div> : <PosterView list={list} /> }
+        <div className="w-full  py-16 flex-col">
+            <div className=" w-11/12 pb-10 flex justify-end">
+                <div className="flex w-20  justify-between py-[2px]  bg-foreground shadow-md rounded-md">
+                    <div className="pl-5" onClick={() => {setView(true)}}>P</div>
+                    <div className="pr-5" onClick={() => {setView(false)}}>L</div>
+                </div>
+            </div>
+            {list.length < 1 ? <EmptyMesage/> : getCurrentView(list) }
         </div>
     </> 
     )
