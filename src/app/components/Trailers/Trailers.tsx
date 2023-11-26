@@ -60,7 +60,7 @@ export default  function Trailers({trailers}:TrailersProps){
                                   </div>
                                   <div className="text-white w-56 truncate text-sm font-light pb-2">{media.tagline}</div>
                                   <span className="text-white truncate w-[200px] tracking-wide text-sm font-medium pb-2">{getDirector(media.credits.crew)}</span>
-                                  <div className="flex text-white text-sm pb-8">{media.genres.map(genre => {return (<span className="mr-2">{genre.name}</span>)}).slice(0,3)}</div>
+                                  <div className="flex text-white text-sm pb-8">{media.genres.map((genre , key) => {return (<span key={key} className="mr-2">{genre.name}</span>)}).slice(0,3)}</div>
                                   <button onClick={() => {setIsClicked(prev => !prev) , setCurrentTrailer(trailerUrl(media.videos))}} className="py-[.3em] items-center justify-evenly w-[100px] flex px-1 rounded  bg-blue  text-white font-medium text-sm tracking-wider hover:shadow-sm hover:shadow-blue-500/50 hover:-translate-y-[2px] transition-transform duration-200">
                                       <Image src={play} alt="trailer" width={22} height={22}/>
                                       Trailer
@@ -69,7 +69,7 @@ export default  function Trailers({trailers}:TrailersProps){
                           </div>
                       </div>
                       <div  
-                      className="opacity-20 rounded-md  relative z-10  w-full h-full bg-center bg-no-repeat bg-cover"
+                      className="opacity-20 rounded-md  relative z-10  w-full h-full  bg-center bg-no-repeat bg-cover"
                       style={{
                           backgroundImage: `url(${backdropImage(media.backdrop_path)})`
                       }}
@@ -77,7 +77,7 @@ export default  function Trailers({trailers}:TrailersProps){
                       </div>
                   </div>
               )
-          })}
+          }).slice(0,3)}
       </div>
   </section>
         </>

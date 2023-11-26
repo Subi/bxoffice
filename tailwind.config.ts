@@ -48,7 +48,8 @@ const config: Config = {
       },
       gridTemplateColumns : {
          category: "repeat(auto-fill,185px)",
-         trailers: "repeat(auto-fill,395px)"
+         trailers: "repeat(auto-fill,395px)",
+         list: "repeat(auto-fill,160px)"
       },
       gridAutoColumns: {
         '2fr' : 'minmax(0,2fr)'
